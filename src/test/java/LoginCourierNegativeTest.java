@@ -25,10 +25,6 @@ public class LoginCourierNegativeTest {
     public void loginCourier404() {
         String login = "Loakoa";
         String password = "1234";
-        loginCourier(login, password);
-    }
-
-    private void loginCourier(String login, String password) {
         // login non-existent courier and check response
         CourierCredentials credentials = new CourierCredentials();
         credentials.setLogin(login);

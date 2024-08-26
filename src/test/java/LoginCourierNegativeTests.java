@@ -32,8 +32,7 @@ public class LoginCourierNegativeTests {
     @Before
     public void setUp() {
         courierMethods = new CourierMethods();
-        courier = new Courier();
-        courier = createCourier("Liloki", "12334", "pok");
+        courier = new Courier("Liloki", "12334", "pok");
         ValidatableResponse createCourierResponse = courierMethods.create(courier);
         int createdCourierStatusCode = createCourierResponse.extract().statusCode();
         assertEquals(createdCourierStatusCode, HttpStatus.SC_CREATED);
@@ -82,13 +81,5 @@ public class LoginCourierNegativeTests {
         } catch (Exception e) {
             fail("Время выполнения теста (5 секунд) истекло." + e.getMessage());
         }
-    }
-
-    private Courier createCourier(String login, String password, String firstName) {
-        Courier courier = new Courier();
-        courier.setLogin(login);
-        courier.setPassword(password);
-        courier.setFirstName(firstName);
-        return courier;
     }
 }
